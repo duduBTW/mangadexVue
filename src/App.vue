@@ -12,6 +12,7 @@
 
   --background: #060a10;
   --main: #392a4b;
+  --darker-main: #291d36;
   --second: #6bc4d4;
   --font-color: #ffffff;
   --darker-second: #6bc4d4;
