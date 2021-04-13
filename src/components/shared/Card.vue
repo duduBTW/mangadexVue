@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div :class="['card', mobile ? 'card-mobile' : '']">
     <slot></slot>
   </div>
 </template>
@@ -7,6 +7,9 @@
 <script>
 export default {
   name: "CardContainer",
+  props: {
+    mobile: Boolean,
+  },
 };
 </script>
 
@@ -20,11 +23,20 @@ export default {
   z-index: 1;
 }
 
+.card.card-mobile {
+  width: calc(100% - 40px);
+  max-width: none;
+}
+
 @media only screen and (max-width: 1366px) {
   .card {
     width: calc(100% - 60px);
     margin: 0px auto;
     max-width: none;
+  }
+
+  .card.card-mobile {
+    width: calc(100% - 40px);
   }
 }
 

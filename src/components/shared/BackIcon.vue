@@ -16,6 +16,7 @@ export default {
 
 <style scoped>
 .backIcon {
+  padding: 10px;
   color: var(--second);
   width: 24px;
   cursor: pointer;

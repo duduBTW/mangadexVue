@@ -6,7 +6,7 @@
       src="../../assets/backIcon.svg"
       alt=""
     />
-    <RowShow title="Senpai ga Uzai Kouhai no Hanashi" />
+    <RowShow @click="goInfo" title="Senpai ga Uzai Kouhai no Hanashi" />
 
     <div class="info">
       <div class="img"></div>
@@ -54,6 +54,9 @@ export default {
   methods: {
     goBack() {
       this.$router.push({ name: "Home" });
+    },
+    goInfo() {
+      this.$router.push({ name: "titleInfoMobile", params: { id: "1" } });
     },
   },
   mounted() {

@@ -1,5 +1,5 @@
 <template>
-  <CardContainer class="tags-container">
+  <CardContainer :mobile="mobile" class="tags-container">
     <Tag label="Genre" :tags="['Romance', 'Comedy', 'Slice of life']" />
     <Tag label="Demographic" :tags="['Seinen']" />
   </CardContainer>
@@ -14,6 +14,9 @@ export default {
   components: {
     CardContainer,
     Tag,
+  },
+  props: {
+    mobile: Boolean,
   },
 };
 </script>

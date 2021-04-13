@@ -12,6 +12,11 @@ const routes = [
     name: "title",
     component: () => import("../views/Title.vue"),
   },
+  {
+    path: "/title/:id/info",
+    name: "titleInfoMobile",
+    component: () => import("../views/TitleInfo"),
+  },
 ];
 
 const router = createRouter({

@@ -64,6 +64,6 @@ export default {
 .sellers-container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
 }
 </style>

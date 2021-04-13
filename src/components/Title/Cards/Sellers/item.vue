@@ -27,14 +27,12 @@ export default {
   gap: 10px;
 }
 
-.seller-label {
-}
-
 .seller-sellers {
   display: flex;
   gap: 20px;
 
   overflow-x: auto;
+  padding-bottom: 20px;
 }
 
 .seller-seller {
@@ -57,9 +55,23 @@ export default {
   z-index: 0;
 
   border-radius: 10px;
+  cursor: pointer;
+}
+
+:is(.seller-seller:hover, .seller-seller-img:hover, .seller-seller-label:hover)
+  .seller-seller-img {
+  transform: scale(1.05);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transition: 0.2s all ease-in-out;
+}
+
+.seller-seller:active .seller-seller-img {
+  transform: scale(0.9);
+  transition: 0.2s all ease-in-out;
 }
 
 .seller-seller-img {
+  transition: 0.2s all ease-in-out;
   width: 58px;
   height: 58px;
   z-index: 2;
@@ -71,5 +83,6 @@ export default {
   z-index: 2;
   font-weight: 500;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 </style>

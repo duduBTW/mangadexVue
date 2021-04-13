@@ -1,12 +1,5 @@
 <template>
   <div class="container-title">
-    <header>
-      <div class="cover"></div>
-      <div class="info">
-        <Statuses />
-        <div class="info-item"><Tags /> <Sellers /></div>
-      </div>
-    </header>
     <div class="content">
       <div class="header">
         <back-icon @goBack="goBackFunc" />
@@ -19,15 +12,19 @@
         sapien, vitae laoreet magna pharetra sed. Phasellus semper augue eget
         turpis blandit, rutrum vehicula erat feugiat. Donec auctor Read...
       </p>
-      <row-info label="Title ID" value="# 23825" />
-      <row-info label="Author" value="Shiro Manta" />
-      <row-info label="Artist" value="Shiro Manta" />
-      <row-info label="Pub. status" value="Ongoing" />
+      <ComponentInfo />
       <div>
         <TabsHeader :tabs="tabs" />
         <MangaList />
       </div>
     </div>
+    <header>
+      <div class="cover"></div>
+      <div class="info">
+        <Statuses />
+        <div class="info-item"><Tags /> <Sellers /></div>
+      </div>
+    </header>
   </div>
 </template>
 
@@ -38,7 +35,7 @@ import Sellers from "./Cards/Sellers/index";
 import TabsHeader from "../../components/Tabs/Tabs";
 import MangaList from "../../components/Title/MangaList";
 import BackIcon from "../shared/BackIcon.vue";
-import RowInfo from "../DataShow/RowInfo.vue";
+import ComponentInfo from "./info/index.vue";
 
 export default {
   name: "TitlePageDesktop",
@@ -49,7 +46,7 @@ export default {
     TabsHeader,
     MangaList,
     BackIcon,
-    RowInfo,
+    ComponentInfo,
   },
   methods: {
     goBackFunc() {
@@ -91,7 +88,7 @@ export default {
 
 @media only screen and (max-width: 1366px) {
   .container-title {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }
 .cover {
@@ -113,7 +110,7 @@ export default {
 
 @media only screen and (max-width: 1366px) {
   .info {
-    flex: 0.9;
+    flex: 1;
     margin: 0px auto;
     min-width: 386px;
     padding: 1px 0px;

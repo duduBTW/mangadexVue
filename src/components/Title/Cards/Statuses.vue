@@ -1,5 +1,5 @@
 <template>
-  <CardContainer class="container">
+  <CardContainer :mobile="mobile" class="container">
     <Progress label="Volume" progress="1" total="2" />
     <Progress label="Chapter" progress="58" total="120" />
     <Status
@@ -34,6 +34,9 @@ export default {
     CardContainer,
     Progress,
     Status,
+  },
+  props: {
+    mobile: Boolean,
   },
 };
 </script>
