@@ -1,10 +1,12 @@
 <template>
   <div class="container-title">
     <div class="content">
-      <div class="header">
-        <back-icon @goBack="goBackFunc" />
-        <h1>Senpai ga Uzai Kouhai no Hanashi</h1>
-      </div>
+      <transition name="header" appear>
+        <div class="header">
+          <back-icon @goBack="goBackFunc" />
+          <h1>Senpai ga Uzai Kouhai no Hanashi</h1>
+        </div>
+      </transition>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu
         auctor lorem. Aenean lorem est, faucibus fermentum leo nec, rhoncus
@@ -71,6 +73,20 @@ export default {
 </script>
 
 <style scoped>
+.header-enter-from {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.header-enter-to {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.header-enter-active {
+  transition: all 0.4s ease-in-out;
+}
+
 .container-title {
   padding: 60px 0px;
   gap: 60px;

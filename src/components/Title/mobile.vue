@@ -6,15 +6,14 @@
       src="../../assets/backIcon.svg"
       alt=""
     />
-    <RowShow @click="goInfo" title="Senpai ga Uzai Kouhai no Hanashi" />
+    <transition name="header" appear>
+      <RowShow @click="goInfo" title="Senpai ga Uzai Kouhai no Hanashi" />
+    </transition>
 
     <div class="info">
       <div class="img"></div>
       <div class="content">
-        <row-info label="Title ID" value="# 23825" />
-        <row-info label="Author" value="Shiro Manta" />
-        <row-info label="Artist" value="Shiro Manta" />
-        <row-info label="Pub. status" value="Ongoing" />
+        <ComponentInfo />
       </div>
     </div>
     <div>
@@ -27,7 +26,7 @@
 import RowShow from "../../components/DataShow/RowShow";
 import TabsHeader from "../../components/Tabs/Tabs";
 import MangaList from "../../components/Title/MangaList";
-import RowInfo from "../DataShow/RowInfo.vue";
+import ComponentInfo from "./info/index.vue";
 
 export default {
   name: "TitlePageMobile",
@@ -35,7 +34,7 @@ export default {
     RowShow,
     TabsHeader,
     MangaList,
-    RowInfo,
+    ComponentInfo,
   },
   data() {
     return {
@@ -66,6 +65,20 @@ export default {
 </script>
 
 <style scoped>
+.header-enter-from {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.header-enter-to {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.header-enter-active {
+  transition: all 0.4s ease-in-out;
+}
+
 .backIcon {
   color: var(--second);
   width: 24px;

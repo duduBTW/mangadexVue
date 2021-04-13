@@ -6,15 +6,17 @@
         <div class="spacer-md"></div>
         <TabsComponents />
       </div>
-      <div class="info">
-        <ReaderHistoryList class="card reading-history" />
-        <!-- <div class="card reading-history"></div> -->
-        <TopChaptresList class="card top-chapters" />
-      </div>
+      <transition appear name="fade">
+        <div class="info">
+          <ReaderHistoryList class="card reading-history" />
+          <TopChaptresList class="card top-chapters" />
+        </div>
+      </transition>
     </header>
     <div class="cards featured-titles">
       <FeaturedtitlesList />
     </div>
+
     <div class="cards new-titles">
       <NewtitlesList />
     </div>
@@ -44,6 +46,31 @@ export default {
 </script>
 
 <style scoped>
+.fade-enter-from {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.fade-enter-to {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+.fade-enter-active {
+  transition: all 0.5s ease-in-out;
+}
+/* 
+.fade-leave-from {
+  opacity: 1;
+}
+
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-leave-active {
+  transition: all 1s ease-in-out;
+} */
 header {
   display: flex;
   gap: 90px;

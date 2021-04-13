@@ -1,21 +1,46 @@
 <template>
   <TabsHeader :tabs="tabs" />
-  <div class="mangas">
-    <div class="manga" v-for="manga in mangas" :key="manga.id">
-      <MangaItem :manga="manga" />
-    </div>
-  </div>
+  <transition-group
+    appear
+    tag="div"
+    class="mangas"
+    @before-enter="beforeEnter"
+    @enter="enter"
+  >
+    <MangaItem
+      v-for="(manga, index) in mangas"
+      :key="manga.id"
+      :manga="manga"
+      :data-index="index"
+    />
+  </transition-group>
 </template>
 
 <script>
 import MangaItem from "../Manga/MangaItem";
 import TabsHeader from "./Tabs";
+import gsap from "gsap";
 
 export default {
   name: "TabsComponents",
   components: {
     MangaItem,
     TabsHeader,
+  },
+  methods: {
+    beforeEnter(el) {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(20px)";
+    },
+    enter(el, done) {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.3,
+        delay: el.dataset.index * 0.05,
+        onComplete: done,
+      });
+    },
   },
   data() {
     return {
@@ -29,6 +54,7 @@ export default {
           active: true,
         },
       ],
+
       mangas: [
         {
           id: 1,
